@@ -1,0 +1,52 @@
+XENS ANNALES — DOWNLOAD REPORT
+Generated 2026-09-23. Status: SUCCESS, verified against Google Drive itself.
+
+EXPECTED vs COMPLETED
+  Maths A       expected 15 pairs, completed 15 pairs / 30 PDFs
+  Maths B       expected 15 pairs, completed 15 pairs / 30 PDFs
+  Maths D       expected 11 pairs, completed 11 pairs / 22 PDFs
+  Informatique  expected 21 pairs, completed 21 pairs / 42 PDFs
+  TOTAL         expected 62 pairs, completed 62 pairs / 124 PDFs
+
+UPLOADS
+  Successfully uploaded PDFs: 124 (all new)
+  Skipped existing identical PDFs: 0 ('XENS ANNALES' did not exist before this run)
+  Replaced corrupt Drive copies: 0
+  A second rclone --checksum pass found nothing to transfer.
+
+INVALID URLS: none. All 124 given URLs returned HTTP 200 with bytes starting %PDF-, file(1) = PDF document, and PDFium opened them with >=1 page.
+  Maths D 2021 CORRIGÉ (prepas.org) was served as application/octet-stream and accepted on content validation, as instructed.
+  An early run reported 86 false failures. The cause was PDFium being called from several threads (it is not thread-safe); serial re-validation of the same bytes passed all 124.
+REPLACEMENT URLS: none needed.
+INCOMPLETE PAIRS: none.
+DUPLICATE HASHES: none (124 distinct SHA-256).
+
+WRONG-EXAM CHECK: every file's first-page text (or a rendered image, for the 5 scans) was read. For each pair the corrigé topic was cross-checked against the énoncé.
+  No document appeared to be the wrong exam, subject or year. Points worth knowing:
+  - A/B/D 2025 énoncé, D 2024 énoncé and Info 2003 énoncé are image-only scans (headers checked visually).
+  - Maths D 2013 and 2015 énoncés are retyped copies by Michel Quercia, not the official print.
+  - Maths D 2016-2018 énoncé headers say 'FILIÈRE MPI' (the paper is Mathématiques D (U)).
+  - Maths D 2025 corrigé stops at Q37; Maths D 2023 corrigé is partial ('éléments de correction'), per their authors.
+  - Maths A/B 2014-2015 énoncés and Info 2014 énoncé are NUL-padded after a valid %%EOF (the server's Content-Length matches); they are complete.
+  - Info 2002 is the MP(SI)/PC 'épreuve facultative'; Info 2000/2001 are the MP 4-hour option-informatique papers (track recorded as MP, as given).
+
+ADDITIONAL MATHS D: NONE added.
+  Direct énoncé PDFs exist for 2011, 2014, 2020 and 2022 (alloschool / wikiprepa.fr/concours/data/ens_maths-d_mp_YYYY.pdf).
+  No unrestricted direct corrigé PDF was found for any of them. The WikiPrépa pages link only the subject, and guessed corrigé paths return 404.
+  Search results were jury reports, forum threads and login-gated sites, so these years stay excluded.
+
+GOOGLE DRIVE PATHS
+  XENS ANNALES/                 https://drive.google.com/drive/folders/1qTXOTICoG_u1FoZHebcia-sA22PE0u2p
+  XENS ANNALES/Maths/Maths A/     https://drive.google.com/drive/folders/1gP32jkRvRwOr28QO43QCND1w_pex9AH-
+  XENS ANNALES/Maths/Maths B/     https://drive.google.com/drive/folders/17zofSuOcD5fZlbrEMVadX4ijQ2xNJtGD
+  XENS ANNALES/Maths/Maths D/     https://drive.google.com/drive/folders/16dggBulKKhJ597kMRvHpcqmYiROeVVXj
+  XENS ANNALES/Informatique/      https://drive.google.com/drive/folders/1yhCFsfEonhfOX0LUPXbPFgpaaBohLCbo
+  XENS ANNALES/XENS_DOWNLOAD_MANIFEST.csv
+  XENS ANNALES/XENS_DOWNLOAD_REPORT.txt
+
+FINAL DRIVE VERIFICATION (rclone lsjson --hash plus a full re-download from Drive)
+  124 files in the 4 folders, matching 124 manifest rows; none missing, none unexpected.
+  Every filename matches 'XENS (MATHS A|MATHS B|MATHS D|INFO) (ÉNONCÉ|CORRIGÉ) YYYY.pdf'. No '(1)' duplicates. No zero-byte files.
+  Every year has exactly one ÉNONCÉ and one CORRIGÉ.
+  The Drive-reported SHA-256 equals the local SHA-256 for all 124 files.
+  Re-downloaded copies all start with %PDF- and open in PDFium, so there are no HTML files renamed .pdf.
